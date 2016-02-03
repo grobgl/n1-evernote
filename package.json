@@ -1,0 +1,21 @@
+{
+  "name": "n1-evernote",
+  "main": "./lib/main",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
+  "engines": {
+    "nylas": ">=0.3.32-b11131d"
+  },
+  "description": "Add Emails to Evernote",
+  "license": "MIT",
+  "icon": "assets/evernote@2x.png",
+  "dependencies": {
+    "evernote": "^1.25.82",
+    "localStorage": "^1.0.3",
+    "underscore": "^1.8.3",
+    "xhr": "^2.2.0"
+  }
+}

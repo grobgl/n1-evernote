@@ -1,0 +1,38 @@
+@import "ui-variables";
+@import "ui-mixins";
+
+// Styles for evernote quick action
+@evernote-img: "nylas://n1-evernote/assets/evernote@2x.png";
+@evernote-success-img: "nylas://n1-evernote/assets/evernote@2x.png";
+
+.thread-list .list-item .list-column-HoverActions {
+	.action.action-evernote {
+		background: url(@evernote-img) center no-repeat, @background-gradient;
+	}
+	.action.action-evernote.evernote-success {
+		background: url(@evernote-success-img) center no-repeat, @background-gradient;
+	}
+}
+body.platform-win32 {
+	.thread-list .list-item .list-column-HoverActions {
+		.action.action-evernote {
+			background: url(@evernote-img) center no-repeat;
+		}
+		.action.action-evernote.evernote-success {
+			background: url(@evernote-success-img) center no-repeat;
+		}
+	}
+}
+.thread-list .list-item.focused:hover .list-column-HoverActions .inner {
+	.action.action-evernote {
+		background: url(@evernote-img) center no-repeat;
+	}
+	.action.action-evernote.evernote-success {
+		background: url(@evernote-success-img) center no-repeat;
+	}
+}
+
+// Styles for evernote toolbar button
+.sheet-toolbar .btn-toolbar.toolbar-evernote {
+	margin-right: 0px;
+}
