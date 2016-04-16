@@ -1,17 +1,21 @@
-{ComponentRegistry} = require 'nylas-exports'
-EvernoteQuickAction = require './ui/quick_action'
-EvernoteToolbarButton = require './ui/toolbar'
+{ComponentRegistry, ExtensionRegistry} = require 'nylas-exports'
+EvernoteMessageAction = require './ui/message-action'
+# EvernoteComposer = require './ui/evernote-composer'
 
 module.exports =
   # Activate is called when the package is loaded. If your package previously
   # saved state using `serialize` it is provided.
   #
   activate: (@state) ->
-    ComponentRegistry.register EvernoteQuickAction,
-      role: 'ThreadListQuickAction'
-    ComponentRegistry.register EvernoteToolbarButton,
-      role: 'message:Toolbar'
+    ComponentRegistry.register EvernoteMessageAction,
+      role: 'message:BodyHeader'
+      # role: 'MessageActions'
       # role: 'thread:BulkAction'
+
+    # You can add your own extensions to the N1 Composer view and the original
+    # Composer by invoking `ExtensionRegistry.Composer.register` with a subclass of
+    # `ComposerExtension`.
+    # ExtensionRegistry.Composer.register EvernoteComposerExtension
 
   # Serialize is called when your package is about to be unmounted.
   # You can return a state object that will be passed back to your package
@@ -25,5 +29,4 @@ module.exports =
   # subscribing to events, release them here.
   #
   deactivate: ->
-    ComponentRegistry.unregister(EvernoteQuickAction)
-    ComponentRegistry.unregister(EvernoteToolbarButton)
+    ComponentRegistry.unregister(EvernoteMessageAction)
